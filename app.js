@@ -1,6 +1,7 @@
 const express = require('express');
 const authRoutes = require('./routes/auth-routes');
 const profileRoutes = require('./routes/profile-routes');
+const recoveryRoutes = require('./routes/info-routes');
 const passportSetup = require('./config/passport-setup');
 const mongodb = require('./connect');
 const cookie = require('cookie-session');
@@ -31,6 +32,7 @@ mongodb.initDb((err) => {
 //set up routes
 app.use('/auth', authRoutes);
 app.use('/profile', profileRoutes);
+app.use('/recovery', recoveryRoutes);
 
 
 //home route
