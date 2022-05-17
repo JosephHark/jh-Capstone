@@ -1,15 +1,23 @@
 const router = require('express').Router();
-
-router.get('/', (req, res) => {
-    res.render('technology'), {user:req.user};
+const info = (req, res, next) => {
+    if (req.user) {
+        //if user is not logined in
+        next();
+    } else {
+        //if logged in
+        next();
+    }
+};
+router.get('/technology', (req, res) => {
+    res.render('technology'), info, {user:req.user};
 });
-router.get('/', (req, res) => {
+router.get('/gambling', (req, res) => {
     res.render('gambling'), {user:req.user};
 });
-router.get('/', (req, res) => {
+router.get('/sexual', (req, res) => {
     res.render('sexual'), {user:req.user};
 });
-router.get('/', (req, res) => {
+router.get('/substance', (req, res) => {
     res.render('substance'), {user:req.user};
 });
 module.exports = router;
