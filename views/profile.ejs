@@ -5,7 +5,7 @@
     <title>Capstone</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" href="css/quote.css">
+	<link rel="stylesheet" href="/public/css/style.css">
 </head>
 
 <body>
@@ -30,30 +30,30 @@
     <main>
         <h1>Welcome to the profile page</h1>
         <h2>Get Your Daily Quote</h2>
-        <div class="content">
-            <div class="quote-area">
+        <div class="wrapper">
+            <div class="content">
+              <div class="quote-area">
                 <i class="fas fa-quote-left"></i>
                 <p class="quote"></p>
-
                 <i class="fas fa-quote-right"></i>
+              </div>
+              <div class="author">
+                <span>__</span>
+                <span class="name"></span>
+              </div>
             </div>
-            <div class="author"></div>
             <div class="buttons">
-                <div class="features">
-                    <ul>
-                        <li class="sound"><i class="fas fa-volume-up"></i></li>
-                        <li class="copy"><i class="fas fa-copy"></i></li>
-                        <li class="facebook"><i class="fab fa-facebook"></i></li>
-                        <li class="twitter"><i class="fab fa-twitter"></i></li>
-                    </ul>
-                   <button class="newQuote">New Quote</button>
-                </div>
+              <div class="features">
+                <ul>
+                  <li class="speech"><i class="fas fa-volume-up"></i></li>
+                  <li class="copy"><i class="fas fa-copy"></i></li>
+                  <li class="twitter"><i class="fab fa-twitter"></i></li>
+                </ul>
+                <button>New Quote</button>
+              </div>
             </div>
-        </div>
-    
-        </div><!--end container-->
+          </div>
     </main>
-    <script src="js/quoteGenerator.js"></script>
 </body>
 
 </html>

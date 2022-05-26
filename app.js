@@ -33,11 +33,12 @@ mongodb.initDb((err) => {
 app.use('/auth', authRoutes);
 app.use('/profile', profileRoutes);
 app.use('/recovery', recoveryRoutes);
+var ms = require("./externalJS");
 
 
 //home route
 app.get('/', (req, res) => {
-    res.render('home', {
+    res.render('home', ms, {
         user: req.user
     });
 });
