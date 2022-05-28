@@ -2,58 +2,58 @@
 <html lang="en-us">
 
 <head>
-    <title>Capstone</title>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" href="/public/css/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
-    <script src="/ajax.js"></script>
+  <title>Capstone</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
 </head>
 
 <body>
-    <header>
+  <header>
 
-    </header>
-    <nav class="navbar">
-        <ul>
-            <% if (user) {%>
-            <li> <a href="/auth/logout">Logout</a></li>
-            <% } else {%>
-            <li> <a href="/auth/login">Login</a></li>
-            <% } %>
-            <li> <a href="/">Homepage</a></li>
-            <li> <a href="/profile">Profile</a></li>
-            <li> <a href="/recovery/gambling">Gambling</a></li>
-            <li> <a href="/recovery/sexual">Sexual</a></li>
-            <li> <a href="/recovery/substance">Substance</a></li>
-            <li> <a href="/recovery/technology">Technology</a></li>
-        </ul>
-    </nav>
-    <main>
-        <h1>Welcome to the profile page</h1>
-        <h2>Get Your Daily Quote</h2>
-        <div class="quote-wrapper">
-            <div class="content">
-              <div class="quote-area">
-                <i class="fas fa-quote-left"></i>
-                <p class="quote"></p>
-                <i class="fas fa-quote-right"></i>
-              </div>
-              <div class="author">
-                <span>__</span>
-                <span class="name"></span>
-              </div>
-            </div>
-            <div class="buttons">
-              <div class="features">
-                <ul>
-                  <li class="speech"><i class="fas fa-volume-up"></i></li>
-                </ul>
-                <button>New Quote</button>
-              </div>
-            </div>
-          </div>
-    </main>
+  </header>
+  <nav class="navbar">
+    <ul>
+      <% if (user) {%>
+      <li> <a href="/auth/logout">Logout</a></li>
+      <% } else {%>
+      <li> <a href="/auth/login">Login</a></li>
+      <% } %>
+      <li> <a href="/">Homepage</a></li>
+      <li> <a href="/profile">Profile</a></li>
+      <li> <a href="/recovery/gambling">Gambling</a></li>
+      <li> <a href="/recovery/sexual">Sexual</a></li>
+      <li> <a href="/recovery/substance">Substance</a></li>
+      <li> <a href="/recovery/technology">Technology</a></li>
+    </ul>
+  </nav>
+  <main>
+    <h1>Welcome to the profile page</h1>
+    <h2>Get Your Daily Quote</h2>
+    <div class="quote-wrapper">
+      <div class="content">
+        <div class="quote-area">
+          <i class="fas fa-quote-left"></i>
+          <p class="quote"></p>
+          <i class="fas fa-quote-right"></i>
+        </div>
+        <div class="author">
+          <span>__</span>
+          <span class="name"></span>
+        </div>
+      </div>
+      <div class="buttons">
+        <div class="features">
+          <ul>
+            <li class="speech"><i class="fas fa-volume-up"></i></li>
+          </ul>
+          <button>New Quote</button>
+        </div>
+      </div>
+    </div>
+  </main>
+  <script src="js/externalJS.js"></script>
 </body>
 
 </html>

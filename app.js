@@ -33,7 +33,12 @@ mongodb.initDb((err) => {
 app.use('/auth', authRoutes);
 app.use('/profile', profileRoutes);
 app.use('/recovery', recoveryRoutes);
-//const ms = require("./externalJS");
+
+//static files
+app.use(express.static('public'));
+app.use('/css', express.static(__dirname + 'public/css'))
+app.use('/js', express.static(__dirname + 'public/js'))
+app.use('/img', express.static(__dirname + 'public/img'))
 
 
 //home route
