@@ -1,10 +1,12 @@
 <!doctype html>
 <html lang="en-us">
-    <head>
-        <title>Capstone</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" type="text/css" href="/main.css">    </head>
+
+<head>
+    <title>Capstone</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="../css/main.css">
+</head>
 
 <body>
 
@@ -13,11 +15,11 @@
     </header>
     <nav class="navbar">
         <ul>
-            <% if (user) {%> 
+            <% if (user) {%>
             <li> <a href="/auth/logout">Logout</a></li>
-            <% } else {%> 
+            <% } else {%>
             <li> <a href="/auth/login">Login</a></li>
-            <% } %> 
+            <% } %>
             <li> <a href="/">Homepage</a></li>
             <li> <a href="/profile">Profile</a></li>
             <li> <a href="/recovery/gambling">Gambling</a></li>
