@@ -1,4 +1,5 @@
 const router = require('express').Router();
+const contacts =require('../models/contacts-model');
 const authCheck = (req, res, next) => {
     if (!req.user) {
         //if user is not logined in
@@ -13,4 +14,5 @@ router.get('/', authCheck, (req, res) => {
     console.log("joseph", req.user);
     res.render('profile', {user:req.user});
 });
+
 module.exports = router;

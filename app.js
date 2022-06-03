@@ -41,6 +41,7 @@ app.use('/js', express.static(__dirname + 'public/js'))
 app.use('/img', express.static(__dirname + 'public/img'))
 
 
+
 //home route
 app.get('/', (req, res) => {
     res.render('home', {
