@@ -3,9 +3,11 @@ const Schema = mongoose.Schema;
 
 //contacts
 const contactSchema = new Schema({
-    name:String,
+    firstname: String,
+    lastname: String,
     email:String,
-    phone:Number
+    phone:Number,
+    userId: String
 });
 
 const Contacts = mongoose.model('contact', contactSchema);

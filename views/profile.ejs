@@ -53,51 +53,9 @@
         </div>
       </div>
     </div>
-    <div ng-controller="ContactsCtrl" style="padding:50px;">
-
-      <tabs>
-        <pane title="Localization">
-        </pane>
-
-      </tabs>
-      <h2>Contacts Manager</h2>
-      <h4>Members</h4>
-      <ul class="unstyled">
-        <li ng-repeat="contact in contacts | filter:{deleted: false}">
-          <p>Contact ID = {{contact.$$hashKey}}</p>
-          <p class="edit-{{contact.edit}}"><span>Name: {{contact.name}}</span>
-            <br />
-            <input type="text" ng-model="contact.name" placeholder="Update Your Name" required>
-          </p>
-          <p class="edit-{{contact.edit}}"><span>Email: {{contact.email}}</span>
-            <br />
-            <input type="email" ng-model="contact.email" placeholder="Update Your Name" required>
-          </p>
-          <button class="btn btn-danger" ng-click="deleteContact($index)"><i class="icon-trash"></i> Delete</button>
-          <button class="btn btn-info btn-{{contact.edit}} btn-edit" ng-click="editContact($index)"><i
-              class="icon-edit"></i> Edit</button>
-          <button class="btn btn-info btn-{{contact.edit}} btn-save" ng-click="saveContact($index)"><i
-              class="icon-edit"></i> Save</button>
-
-          <hr />
-        </li>
-      </ul>
-      <h4>Add</h4>
-      <form ng-submit="addContact()">
-        <ul class="unstyled">
-          <li>
-            <input type="text" ng-model="cName" placeholder="Enter Your Name" required>
-          </li>
-          <li>
-            <input type="email" ng-model="cEmail" placeholder="Enter Your Email" required>
-          </li>
-        </ul>
-        <button class="btn"><i class="icon-plus"></i>Add</button>
-      </form>
-    </div>
   </main>
   <script src="../js/externalJS.js"></script>
-  <script src="../js/contacts.js"></script>
+
 </body>
 
 </html>
