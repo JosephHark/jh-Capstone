@@ -7,7 +7,7 @@ const mongodb = require('./connect');
 const cookie = require('cookie-session');
 const passport = require('passport');
 const keys = require('./config/keys');
-
+const contacts = require('./models/contacts-model')
 const app = express();
 
 //view engine
@@ -17,7 +17,21 @@ app.use(cookie({
     maxAge: 12 * 60 * 60 * 1000,
     keys: [keys.session.cookieKey]
 }));
-
+app.get('/add-contacts',(req,res)=>{
+    const contact = new contacts({
+        firstname: 'testing-testing',
+        lastname: 'one-two-three',
+        email:'test@test.com',
+        phone:123-456-7890
+    }) 
+    contact.save()
+    .then((result)=>{
+        res.send(result)
+    })
+    .catch((err)=>{
+        console.log(err);
+    });
+});
 //initailize passport
 app.use(passport.initialize());
 app.use(passport.session());
