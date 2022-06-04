@@ -53,6 +53,21 @@
         </div>
       </div>
     </div>
+    <div class="contacts-wrapper">
+      <% if (contacts.length > 0) { %>
+      <%  contacts.forEach(contact => { %>
+
+      <p class="name"><%= contact.fullname %></p>
+      <p class="phone"><%= contact.phone %></p>
+      <p class="email"><%= contact.email %></p>
+
+      <% }) %>
+      <% } else { %>
+
+      <p>You have no contacts added. Would you like to add one now?</p>
+      
+      <% } %>
+    </div>
   </main>
   <script src="../js/externalJS.js"></script>
 

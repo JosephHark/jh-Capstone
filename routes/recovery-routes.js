@@ -1,7 +1,6 @@
 const router = require('express').Router();
 
 router.get('/technology', (req, res) => {
-    console.log("joseph", req.user);
     res.render('technology', {user:req.user});
 });
 router.get('/gambling', (req, res) => {

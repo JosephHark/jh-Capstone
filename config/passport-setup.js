@@ -20,13 +20,11 @@ passport.use(
         clientID: keys.google.clientID,
         clientSecret: keys.google.clientSecret,
     }, (accessToken, refreshToken, profile, done) => {
-        console.log(profile);
         User.findOne({
             googleid: profile.id
         }).then((currentUser) => {
             if (currentUser) {
                 //already havea a user
-                console.log('Current user is:' + currentUser)
                 done(null, currentUser);
             } else {
                 //create a new user
@@ -34,7 +32,6 @@ passport.use(
                     username: profile.displayName,
                     googleid: profile.id
                 }).save().then((newUser) => {
-                    console.log('new user created' + newUser)
                     done(null, newUser);
                 })
             }

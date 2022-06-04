@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const contacts =require('../models/contacts-model');
+const contacts = require('../models/contacts-model');
 const authCheck = (req, res, next) => {
     if (!req.user) {
         //if user is not logined in
@@ -11,8 +11,13 @@ const authCheck = (req, res, next) => {
 };
 
 router.get('/', authCheck, (req, res) => {
-    console.log("joseph", req.user);
-    res.render('profile', {user:req.user});
+    contacts.find()
+        .then((result) => {
+            res.render('profile', {user: req.user}, {contacts: result});
+        })
+        .catch((err) => {
+            console.log(err)
+        })
 });
 
 module.exports = router;
