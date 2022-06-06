@@ -12,21 +12,7 @@
     <header>
 
     </header>
-    <nav class="navbar">
-        <ul>
-            <% if (user) {%> 
-            <li> <a href="/auth/logout">Logout</a></li>
-            <% } else {%> 
-            <li> <a href="/auth/login">Login</a></li>
-            <% } %> 
-            <li> <a href="/">Homepage</a></li>
-            <li> <a href="/profile">Profile</a></li>
-            <li> <a href="/recovery/gambling">Gambling</a></li>
-            <li> <a href="/recovery/sexual">Sexual</a></li>
-            <li> <a href="/recovery/substance">Substance</a></li>
-            <li> <a href="/recovery/technology">Technology</a></li>
-        </ul>
-    </nav>
+    <% include partials/nav.ejs %> 
     <main>
         <h1>Welcome to the profile page</h1>
         <div class="health">

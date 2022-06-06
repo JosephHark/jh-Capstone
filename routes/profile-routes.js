@@ -1,5 +1,6 @@
 const router = require('express').Router();
-const { render } = require('express/lib/response');
+const express = require('express')
+const {render} = require('express/lib/response');
 const contactController = require('../controllers/contact');
 
 const authCheck = (req, res, next) => {
@@ -11,15 +12,17 @@ const authCheck = (req, res, next) => {
         next();
     }
 };
-app.use(express.urlencoded({extended : true}));
+router.use(express.urlencoded({
+    extended: true
+}));
 router.get('/', authCheck, (req, res) => {
-            res.render('profile', {user: req.user});
-});
+    router.get('/', contactController.getAll);
+    router.get('/:id', contactController.getSingle);
+    router.post('/', contactController.create_contact);
+    router.put('/:id', contactController.update_contact);
+    router.delete('/:id', contactController.delete_contact);
+    res.render('profile', {user: req.user});
 
-router.get('/', contactController.getAll);
-router.get('/:id', contactController.getSingle);
-router.post('/', contactController.create_contact);
-router.put('/:id', contactController.update_contact);
-router.delete('/:id', contactController.delete_contact);
+});
 
 module.exports = router;

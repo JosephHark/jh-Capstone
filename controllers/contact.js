@@ -41,17 +41,11 @@ const getSingle = async (req, res, next) => {
 };
 
 const create_contact = async (req, res, next) => {
-  // #swagger.tags = ['contacts']
-  /*  #swagger.parameters['obj'] = {
-                  in: 'body',
-                  description: 'Create a contact file',
-                  schema: { $ref: '#/definitions/contact' }
-          } */
   try {
     if (
-      !req.body.title ||
-      !req.body.contactType ||
-      !req.body.description 
+      !req.body.fullname ||
+      !req.body.email ||
+      !req.body.phone 
     ) {
       res.status(400).send({ message: 'contact fields cannot be empty.' });
       return;
@@ -74,12 +68,6 @@ const create_contact = async (req, res, next) => {
 };
 
 const update_contact = async (req, res, next) => {
-  // #swagger.tags = ['contacts']
-  /*  #swagger.parameters['obj'] = {
-                  in: 'body',
-                  description: 'Edit an contact file',
-                  schema: { $ref: '#/definitions/contact' }
-          } */
   try {
     const contact = await ContactsModel.findById(req.params.id);
 
@@ -87,9 +75,9 @@ const update_contact = async (req, res, next) => {
       throw createError(404, "contact doesn't exist");
     }
 
-    if (req.body.title) contact.title = req.body.title;
-    if (req.body.contactType) contact.contactType = req.body.contactType;
-    if (req.body.description) contact.description = req.body.description;
+    if (req.body.fullname) contact.fullname = req.body.fullname;
+    if (req.body.email) contact.email = req.body.email;
+    if (req.body.phone) contact.phone = req.body.phone;
 
     contact.save((err) => {
       if (err) {
@@ -104,8 +92,6 @@ const update_contact = async (req, res, next) => {
 };
 
 const delete_contact = async (req, res, next) => {
-  // #swagger.tags = ['contacts']
-
   try {
     const request = await ContactsModel.findByIdAndDelete({
       _id: req.params.id
