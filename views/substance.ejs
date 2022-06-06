@@ -6,6 +6,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" type="text/css" href="../css/main.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     </head>
 
 <body>
@@ -13,19 +14,22 @@
 
     </header>
     <nav class="topnav">
-        <ul id="myLinks">
+        <li> <a href="/" class="active">Homepage</a></li>
+        <div id="myLinks">
             <% if (user) {%>
             <li> <a href="/auth/logout">Logout</a></li>
             <% } else {%>
             <li> <a href="/auth/login">Login</a></li>
             <% } %>
-            <li> <a href="/">Homepage</a></li>
             <li> <a href="/profile">Profile</a></li>
             <li> <a href="/recovery/gambling">Gambling</a></li>
             <li> <a href="/recovery/sexual">Sexual</a></li>
             <li> <a href="/recovery/substance">Substance</a></li>
             <li> <a href="/recovery/technology">Technology</a></li>
-        </ul>
+        </div>
+        <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+            <i class="fa fa-bars"></i>
+        </a>
     </nav>
     <main>
         <h1>Welcome to the profile page</h1>
