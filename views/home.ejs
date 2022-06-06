@@ -12,7 +12,21 @@
     <header>
 
     </header>
-    <% include partials/nav.ejs %> 
+    <nav class="topnav">
+        <ul id="myLinks">
+            <% if (user) {%>
+            <li> <a href="/auth/logout">Logout</a></li>
+            <% } else {%>
+            <li> <a href="/auth/login">Login</a></li>
+            <% } %>
+            <li> <a href="/">Homepage</a></li>
+            <li> <a href="/profile">Profile</a></li>
+            <li> <a href="/recovery/gambling">Gambling</a></li>
+            <li> <a href="/recovery/sexual">Sexual</a></li>
+            <li> <a href="/recovery/substance">Substance</a></li>
+            <li> <a href="/recovery/technology">Technology</a></li>
+        </ul>
+    </nav>
     <main>
         People who have a substance use disorder often find that overcoming it is more challenging than expected. They
         may feel that addiction is a myth and they can quit any time they want or that they are an exception to the
@@ -95,6 +109,7 @@
         I am not a doctor or therapist. These tips for overcoming addictions come from personal expirence, or the
         expirence of friends and family who have either suffered from or becuase of addictions.
     </main>
+    <script src="../js/nav.js"></script>
 
 </body>
 

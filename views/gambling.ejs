@@ -13,7 +13,21 @@
     <header>
 
     </header>
-    <% include partials/nav.ejs %> 
+    <nav class="topnav">
+        <ul id="myLinks">
+            <% if (user) {%>
+            <li> <a href="/auth/logout">Logout</a></li>
+            <% } else {%>
+            <li> <a href="/auth/login">Login</a></li>
+            <% } %>
+            <li> <a href="/">Homepage</a></li>
+            <li> <a href="/profile">Profile</a></li>
+            <li> <a href="/recovery/gambling">Gambling</a></li>
+            <li> <a href="/recovery/sexual">Sexual</a></li>
+            <li> <a href="/recovery/substance">Substance</a></li>
+            <li> <a href="/recovery/technology">Technology</a></li>
+        </ul>
+    </nav>
     <main>
         <h1>Welcome to the profile page</h1>
         <h1>Overcoming Addictions</h1>
@@ -102,6 +116,7 @@
                     and find ways to avoid the temptations to reduce the risk of gambling.</p>
             </div>
     </main>
+    <script src="../js/nav.js"></script>
 
 </body>
 
