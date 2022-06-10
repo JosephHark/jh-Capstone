@@ -12,22 +12,135 @@
 <body>
     <header class="prim-header">
         <!-- Top Navigation Menu -->
-        <button class="mobile-nav-toggle" aria-controls="primary-nav" aria-expanded="false">Menu</button>
+        <button class="mobile-nav-toggle fa fa-bars" aria-controls="primary-nav" aria-expanded="false">
+            <span class="sr-only">Menu</span>
+        </button>
 
         <nav>
             <ul id="primary-nav" data-visible="false" class="primary-nav flex">
                 <li> <a href="/" class="links active">Homepage</a></li>
-                <li> <a class="links" href="/">Profile</a></li>
-                <li> <a class="links" href="/">Gambling</a></li>
-                <li> <a class="links" href="/">Sexual</a></li>
-                <li> <a class="links" href="/">Substance</a></li>
-                <li> <a class="links" href="/">Technology</a></li>
+                <% if (user) {%>
+                <li> <a class="links" href="/auth/logout">Logout</a></li>
+                <% } else {%>
+                <li> <a class="links" href="/auth/login">Login</a></li>
+                <% } %>
+                <li> <a class="links" href="/profile">Profile</a></li>
+                <li> <a class="links" href="/recovery/gambling">Gambling</a></li>
+                <li> <a class="links" href="/recovery/sexual">Sexual</a></li>
+                <li> <a class="links" href="/recovery/substance">Substance</a></li>
+                <li> <a class="links" href="/recovery/technology">Technology</a></li>
             </ul>
         </nav>
     </header>
 
     <main>
+        <div id="addiction-info">
+            <div class="addiction-info">People who have a substance use disorder often find that overcoming it is more
+                challenging than expected. They
+                may feel that addiction is a myth and they can quit any time they want or that they are an exception to
+                the
+                rule. This can also occur with behavioral addictions such as eating, sex, gambling, shopping, and even
+                exercise.
+                Learning to overcome an addiction is vital for anyone experiencing a substance use disorder, alcohol use
+                disorder, or behavioral addiction.Recoverees may also find that in trying to overcome one addiction,
+                such as
+                giving pornography for drinking or gambling for smoking. They may also add another addiction, such as
+                picking up
+                drinking along with gambling orstarting to smoke as they suffer from substance abuse.While challenging,
+                recognizing that there is a problem and
+                learning more about the process of quitting are significant first steps in recovery.</div>
+            <div class="addiction-info">
+                <h3>What is Addiction</h3>
+                Addiction can be either physical or behavioral, and often they go hand in hand. Though alcohol and
+                tobacco
+                are
+                commonly recognized types of addiction, there are actually hundreds of types of medically and
+                scientifically
+                recognized addictions. Cravings, compulsions, inability to stop, and lifestyle dysfunction all point to
+                the
+                existence of some type of
+                addiction. A person can be addicted to behaviors just as seriously as one can be addicted to substances
+                such
+                as
+                alcohol or hard drugs.The addictive behaviors that result from both types of addiction can have serious
+                negative
+                consequences though,
+                from all that comes with a substance use disorder to the perils of a gambling addiction, or even
+                compulsive
+                shopping and sexual behavior to an unhealthy degree. Addiction is a complex disease. The type of
+                addiction
+                doesn’t really matter as much as the underlying issue
+                causing the patient to chase that pleasurable feeling while incurring adverse consequences.<br>Addiction
+                interferes with normal brain function, particularly in the reward system.When you do something you
+                find enjoyable, whether that’s hanging out with your best friend, drinking a bottle of
+                wine, or using cocaine, this reward system releases the neurotransmitter dopamine along with other
+                chemicals.Contrary to popular belief, dopamine doesn’t appear to actually cause feelings of pleasure or
+                euphoria. Instead,
+                it seems to reinforce your brain’s association between certain things and feelings of pleasure, driving
+                you
+                to
+                seek those things out again in the future.
+            </div>
+            <div class="addiction-info">
+                <h3>Why Overcoming Addiction Is So Difficult</h3>
+                According to the American Society of Addiction Medicine, addiction is a "treatable, chronic medical
+                disease
+                involving complex interactions among brain circuits, genetics, the environment, and an individual’s life
+                experiences." People continue to engage in harmful behaviors despite negative consequences because
+                addiction
+                changes the brain's reward system, which increases the desire for the substances or experiences. These
+                changes
+                in the brain also affect impulse control and judgment, which makes quitting that much more challenging.
+                Addiction is treatable; with supportive resources and the right treatment approach, you can overcome the
+                physical and mental challenges you face to recover. Overcoming addictions can be difficult, especially
+                when
+                attempting to do it alone. Fortunately, you are not alone you have friends and family you can reach out
+                to.
+                There are support groups for nearly every kind of addiction you may find yourself struggling with. It is
+                our
+                goal to help get you on the path to breaking your addictions and staying on them. But it is up to you to
+                take
+                that first step. We will offer ideas and tips to help with your goals and links to other helpful sites
+                and
+                ways
+                to get those closest to you involved in your recovery.
+            </div>
+        </div>
 
+        <h3>Some Do's and Do Not's in Recovery</h3>
+        <div class="toDos">
+
+            <div class="toDo">
+                <ol>
+                    <li>Do continue to work your program.</li>
+                    <li>Do involve others in your recovery. Continue to talk to someone when
+                        needed regarding your emotional & mental health.</li>
+                    <li>Do use the activities that work best for you and promote your
+                        recovery. This is different for everyone.</li>
+                    <li>Do keep busy (do things to help your physical health, participate in
+                        service activities, spend time with family or friends)</li>
+                    <li>Do take up a wholesome hobby.</li>
+                    <li>Identify places that can act as a trigger</li>
+                </ol>
+            </div>
+            <div class="toNotDo">
+                <ol>
+                    <li>Do not underestimate your problem. This can happen to those who have
+                        clean time under their belt.</li>
+                    <li>Do not fall into dangerous behaviors or emotions. (I.e. dishonesty,
+                        blame, self-pity, resentment etc.)</li>
+                    <li>Do not get complacent with your life and recovery. Boredom is
+                        dangerous.</li>
+                    <li>Do not frequent places that can act as a trigger</li>
+                    <li>Do not replace your addiction with something else.</li>
+                    <li>Do not fall into self-pity when you have done something wrong or
+                        relapsed.</li>
+                </ol>
+            </div>
+        </div>
+        <h4>Disclaimer</h4>
+        I am not a doctor or therapist. These tips for overcoming addictions come from personal expirence, or the
+        expirence of friends and family who have either suffered from or becuase of addictions.
     </main>
     <script src="../js/nav.js"></script>
 

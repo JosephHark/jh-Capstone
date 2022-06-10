@@ -11,26 +11,28 @@
 </head>
 
 <body>
-    <header>
+    <header class="prim-header">
+        <!-- Top Navigation Menu -->
+        <button class="mobile-nav-toggle fa fa-bars" aria-controls="primary-nav" aria-expanded="false">
+            <span class="sr-only">Menu</span>
+        </button>
+
+        <nav>
+            <ul id="primary-nav" data-visible="false" class="primary-nav flex">
+                <li> <a href="/" class="links active">Homepage</a></li>
+                <% if (user) {%>
+                <li> <a class="links" href="/auth/logout">Logout</a></li>
+                <% } else {%>
+                <li> <a class="links" href="/auth/login">Login</a></li>
+                <% } %>
+                <li> <a class="links" href="/profile">Profile</a></li>
+                <li> <a class="links" href="/recovery/gambling">Gambling</a></li>
+                <li> <a class="links" href="/recovery/sexual">Sexual</a></li>
+                <li> <a class="links" href="/recovery/substance">Substance</a></li>
+                <li> <a class="links" href="/recovery/technology">Technology</a></li>
+            </ul>
+        </nav>
     </header>
-    <nav class="topnav">
-        <li> <a href="/" class="active">Homepage</a></li>
-        <div id="myLinks">
-            <% if (user) {%>
-            <li> <a href="/auth/logout">Logout</a></li>
-            <% } else {%>
-            <li> <a href="/auth/login">Login</a></li>
-            <% } %>
-            <li> <a href="/profile">Profile</a></li>
-            <li> <a href="/recovery/gambling">Gambling</a></li>
-            <li> <a href="/recovery/sexual">Sexual</a></li>
-            <li> <a href="/recovery/substance">Substance</a></li>
-            <li> <a href="/recovery/technology">Technology</a></li>
-        </div>
-        <a href="javascript:void(0);" class="icon" onclick="myFunction()">
-            <i class="fa fa-bars"></i>
-        </a>
-    </nav>
     <main>
         <h1>Welcome to the profile page</h1>
         <h1>Overcoming Addictions</h1>
