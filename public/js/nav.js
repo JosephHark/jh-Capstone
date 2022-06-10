@@ -1,8 +1,12 @@
-function myFunction() {
-    var x = document.getElementById("myLinks");
-    if (x.style.display === "block") {
-      x.style.display = "none";
-    } else {
-      x.style.display = "block";
-    }
+const primaryNav = document.querySelector(".primary-nav");
+const navToggle = document.querySelector(".mobile-nav-toggle");
+
+navToggle.addEventListener('click', () => {
+  const visible = primaryNav.getAttribute('data-visible');
+
+  if (visible === "false") {
+    primaryNav.setAttribute('data-visible', true);
+  } else if (visible === "true") {
+    primaryNav.setAttribute('data-visible', true);
   }
+})
