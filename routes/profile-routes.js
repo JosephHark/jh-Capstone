@@ -1,9 +1,5 @@
 const router = require('express').Router();
 const express = require('express')
-const {
-    render
-} = require('express/lib/response');
-const contactController = require('../controllers/contact');
 
 const authCheck = (req, res, next) => {
     if (!req.user) {
