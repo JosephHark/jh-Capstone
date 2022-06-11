@@ -1,16 +1,24 @@
 const router = require('express').Router();
 const passport = require('passport');
+
 //login
 router.get('/login', (req, res) => {
-    res.render('login', {user:req.user});
+    res.render('login', {
+        user: req.user
+    });
 });
 
 router.get('/emaillogin', (req, res) => {
-    res.render('emaillogin', {user:req.user});
+    res.render('emaillogin', {
+        user: req.user
+    });
 });
 router.get('/register', (req, res) => {
-    res.render('register', {user:req.user});
+    res.render('register', {
+        user: req.user
+    });
 });
+
 //logout
 router.get('/logout', (req, res) => {
     req.logout();
@@ -23,7 +31,7 @@ router.get('/google', passport.authenticate('google', {
 }));
 
 //callback route for google
-router.get('/google/redirect', passport.authenticate('google'), (req,res)=>{
+router.get('/google/redirect', passport.authenticate('google'), (req, res) => {
     //res.send(req.user);
     res.redirect('/profile/');
 });
