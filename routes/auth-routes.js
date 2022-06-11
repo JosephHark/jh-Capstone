@@ -5,6 +5,12 @@ router.get('/login', (req, res) => {
     res.render('login', {user:req.user});
 });
 
+router.get('/emaillogin', (req, res) => {
+    res.render('emaillogin', {user:req.user});
+});
+router.get('/register', (req, res) => {
+    res.render('register', {user:req.user});
+});
 //logout
 router.get('/logout', (req, res) => {
     req.logout();

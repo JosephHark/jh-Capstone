@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en-us">
+
+<head>
+    <title>Login</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="../css/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+    <header class="prim-header">
+        <!-- Top Navigation Menu -->
+        <button class="mobile-nav-toggle fa fa-bars" aria-controls="primary-nav" aria-expanded="false">
+            <span class="sr-only">Menu</span>
+        </button>
+
+        <nav>
+            <ul id="primary-nav" data-visible="false" class="primary-nav flex">
+                <li> <a href="/" class="links active">Homepage</a></li>
+                <% if (user) {%>
+                <li> <a class="links" href="/auth/logout">Logout</a></li>
+                <% } else {%>
+                <li> <a class="links" href="/auth/login">Login</a></li>
+                <% } %>
+                <li> <a class="links" href="/profile">Profile</a></li>
+                <li> <a class="links" href="/recovery/gambling">Gambling</a></li>
+                <li> <a class="links" href="/recovery/sexual">Sexual</a></li>
+                <li> <a class="links" href="/recovery/substance">Substance</a></li>
+                <li> <a class="links" href="/recovery/technology">Technology</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <a id="backButton" href="/profile">&#10096; Back to Profile Page</a>
+        <form class="addContactForm" action='/addcontact' method='post'>
+            <!-- user input-->
+            Email:<br />
+            <input type='email' name='email' id='email' placeholder='Email' required /><br /><br />
+            First Name:<br />
+            <input type='text' name='firstname' placeholder='First Name' required /><br /><br />
+            Last Name:<br />
+            <input type='text' name='lastname' placeholder='Last Name' required /><br /><br />
+            Phone Number:<br />
+            <input type="tel" id="phone" name="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required>
+            <small>Format: 123-456-7890</small>
+            <!-- submit button -->
+            <input type='submit' value='addContact' />
+        </form>
+    </main>
+    <script src="../js/nav.js"></script>
+
+</body>
+
+</html>

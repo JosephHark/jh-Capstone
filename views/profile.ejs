@@ -14,25 +14,25 @@
   <header class="prim-header">
     <!-- Top Navigation Menu -->
     <button class="mobile-nav-toggle fa fa-bars" aria-controls="primary-nav" aria-expanded="false">
-        <span class="sr-only">Menu</span>
+      <span class="sr-only">Menu</span>
     </button>
 
     <nav>
-        <ul id="primary-nav" data-visible="false" class="primary-nav flex">
-            <li> <a href="/" class="links active">Homepage</a></li>
-            <% if (user) {%>
-            <li> <a class="links" href="/auth/logout">Logout</a></li>
-            <% } else {%>
-            <li> <a class="links" href="/auth/login">Login</a></li>
-            <% } %>
-            <li> <a class="links" href="/profile">Profile</a></li>
-            <li> <a class="links" href="/recovery/gambling">Gambling</a></li>
-            <li> <a class="links" href="/recovery/sexual">Sexual</a></li>
-            <li> <a class="links" href="/recovery/substance">Substance</a></li>
-            <li> <a class="links" href="/recovery/technology">Technology</a></li>
-        </ul>
+      <ul id="primary-nav" data-visible="false" class="primary-nav flex">
+        <li> <a href="/" class="links active">Homepage</a></li>
+        <% if (user) {%>
+        <li> <a class="links" href="/auth/logout">Logout</a></li>
+        <% } else {%>
+        <li> <a class="links" href="/auth/login">Login</a></li>
+        <% } %>
+        <li> <a class="links" href="/profile">Profile</a></li>
+        <li> <a class="links" href="/recovery/gambling">Gambling</a></li>
+        <li> <a class="links" href="/recovery/sexual">Sexual</a></li>
+        <li> <a class="links" href="/recovery/substance">Substance</a></li>
+        <li> <a class="links" href="/recovery/technology">Technology</a></li>
+      </ul>
     </nav>
-</header>
+  </header>
   </nav>
   <main>
     <h1>Welcome to the profile page</h1>
@@ -41,7 +41,8 @@
       <div class="content">
         <div class="quote-area">
           <i class="fas fa-quote-left"></i>
-          <p class="quote">The most authentic thing about us is our capacity to create, to overcome, to endure, to transform, to love and to be greater than our suffering.</p>
+          <p class="quote">The most authentic thing about us is our capacity to create, to overcome, to endure, to
+            transform, to love and to be greater than our suffering.</p>
           <i class="fas fa-quote-right"></i>
         </div>
         <div class="author">
@@ -58,7 +59,13 @@
         </div>
       </div>
     </div>
-
+    <div>
+      <h2>Contacts</h2>
+      We all need help sometimes, if you find yourself falling back into patterns that you want to avoid, don't be
+      afraid to reach out to a friend, loved one, or family member.
+      <a href='/profile/addcontact'>New Contact? Click here.</a>
+      
+    </div>
   </main>
   <script src="../js/externalJS.js"></script>
   <script src="../js/nav.js"></script>
