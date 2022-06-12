@@ -6,7 +6,7 @@ const contactSchema = new Schema({
     fullname: String,
     email:String,
     phone:Number
-});
+}, {timestamps: true});
 
 const Contacts = mongoose.model('Contact', contactSchema);
 
