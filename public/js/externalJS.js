@@ -1,10 +1,10 @@
-const quoteText = document.querySelector(".quote"),
-quoteBtn = document.querySelector("button"),
-authorName = document.querySelector(".name"),
-speechBtn = document.querySelector(".speech"),
-copyBtn = document.querySelector(".copy"),
-twitterBtn = document.querySelector(".twitter"),
-synth = speechSynthesis;
+const quoteText = document.querySelector(".quote");
+const quoteBtn = document.getElementById('quoteBtn');
+const authorName = document.querySelector(".name");
+const speechBtn = document.querySelector(".speech");
+const copyBtn = document.querySelector(".copy");
+const twitterBtn = document.querySelector(".twitter");
+const synth = speechSynthesis;
 
 function randomQuote(){
     quoteBtn.classList.add("loading");
@@ -12,6 +12,7 @@ function randomQuote(){
     fetch("http://api.quotable.io/random").then(response => response.json()).then(result => {
         quoteText.innerText = result.content;
         authorName.innerText = result.author;
+        console.log(quoteText)
         quoteBtn.classList.remove("loading");
         quoteBtn.innerText = "New Quote";
     });
