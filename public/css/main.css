@@ -91,7 +91,9 @@ body {
         padding: 0 1.25rem 0 1.25rem;
     }
 
-    .gamImg {
+    .gamImg,
+    .subImg,
+    .techImg {
         width: 90%;
         aspect-ratio: 1.65;
         padding: 0 1.25rem 0 1.25rem;
@@ -167,9 +169,18 @@ body {
         grid-template-columns: 1fr 1fr;
     }
 
-    .recoverImg {
+    .recoverImg,
+    .sexImg,
+    .subImg,
+    .techImg {
         width: 80%;
         aspect-ratio: 1.65;
         padding: 0 1.25rem 0 1.25rem;
+    }
+
+    .familyfull,
+    .healthFull {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
     }
 }
