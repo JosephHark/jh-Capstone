@@ -33,20 +33,34 @@
         </nav>
     </header>
     <main>
-        <div class='section'>
-            <p class='lead'>Please log in to access profile page.</p>
+        <div class="wrapper card-content">
+            <div class='section'>
+                <p class='lead'>Please log in to access profile page.</p>
+            </div>
+            <div class="content">
+                <div class='section'>
+                    <a href='/auth/google' class='btn blue darken-1'>
+                        <svg class="google" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 488 512">
+                            <!--! Font Awesome Pro 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
+                            <path
+                                d="M488 261.8C488 403.3 391.1 504 248 504 110.8 504 0 393.2 0 256S110.8 8 248 8c66.8 0 123 24.5 166.3 64.9l-67.5 64.9C258.5 52.6 94.3 116.6 94.3 256c0 86.5 69.1 156.6 153.7 156.6 98.2 0 135-70.4 140.8-106.9H248v-85.3h236.1c2.3 12.7 3.9 24.9 3.9 41.4z" />
+                        </svg>
+                        Log in With Google
+                    </a>
+                </div>
+                <div class='section'>
+                    <a href='emaillogin' class='btn red darken-1'>
+                        <svg class="google" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                            <!--! Font Awesome Pro 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
+                            <path
+                                d="M464 64C490.5 64 512 85.49 512 112C512 127.1 504.9 141.3 492.8 150.4L275.2 313.6C263.8 322.1 248.2 322.1 236.8 313.6L19.2 150.4C7.113 141.3 0 127.1 0 112C0 85.49 21.49 64 48 64H464zM217.6 339.2C240.4 356.3 271.6 356.3 294.4 339.2L512 176V384C512 419.3 483.3 448 448 448H64C28.65 448 0 419.3 0 384V176L217.6 339.2z" />
+                        </svg>Log in With Email
+                    </a>
+                </div>
+            </div>
+
         </div>
-        <div class='section'>
-            <a href='/auth/google' class='btn blue darken-1'>
-                <i class='fab fa-google left'></i>
-                Log in With Google
-            </a>
-        </div>
-        <div class='section'>
-            <a href='emaillogin' class='btn red darken-1'>
-                Log in With Email
-            </a>
-        </div>
+
     </main>
     <script src="../js/nav.js"></script>
 
