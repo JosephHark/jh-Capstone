@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css');
 
 body {
     padding: 0;
@@ -11,6 +12,104 @@ body {
 footer {
     text-decoration: none;
     color: white;
+}
+
+form {
+    height: 75vw;
+    min-height: 500px;
+    width: 40vw;
+    min-width: 400px;
+    background-color: rgba(255, 255, 255, 0.13);
+    position: absolute;
+    transform: translate(-50%, -15%);
+    top: 50%;
+    left: 50%;
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 0 40px rgba(8, 7, 16, 0.6);
+    padding: 50px 35px;
+}
+
+form * {
+    font-family: 'Poppins', sans-serif;
+    color: #ffffff;
+    letter-spacing: 0.5px;
+    outline: none;
+    border: none;
+}
+
+form h3 {
+    font-size: 32px;
+    font-weight: 500;
+    line-height: 42px;
+    text-align: center;
+}
+
+label {
+    display: block;
+    margin-top: 30px;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+input {
+    display: block;
+    height: 50px;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.07);
+    border-radius: 3px;
+    padding: 0 10px;
+    margin-top: 8px;
+    font-size: 14px;
+    font-weight: 300;
+}
+
+::placeholder {
+    color: #e5e5e5;
+}
+
+.button {
+    margin-top: 50px;
+    width: 100%;
+    background-color: #ffffff;
+    color: #080710;
+    padding: 15px 0;
+    font-size: 18px;
+    font-weight: 600;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.social {
+    margin-top: 30px;
+    display: flex;
+}
+
+.social div {
+    background: red;
+    width: 150px;
+    border-radius: 3px;
+    padding: 5px 10px 10px 5px;
+    background-color: rgba(255, 255, 255, 0.27);
+    color: #eaf0fb;
+    text-align: center;
+}
+
+.social div:hover {
+    background-color: rgba(255, 255, 255, 0.47);
+}
+
+.social .fb {
+    margin-left: 25px;
+}
+
+.social i {
+    margin-right: 4px;
+}
+
+.social a {
+    text-decoration: none;
 }
 
 .flex {
@@ -26,6 +125,11 @@ footer {
 .prim-header,
 footer {
     background-color: #202842;
+    height: auto;
+}
+
+.signup-body {
+    background-color: #0b1a49
 }
 
 .mobile-nav-toggle[aria-expanded] {
@@ -46,14 +150,6 @@ footer {
     display: flex;
     align-items: center;
     font-size: .75em;
-}
-
-.wrapper {
-    width: 605px;
-    background: #fff;
-    border-radius: 15px;
-    padding: 30px 30px 25px;
-    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.1);
 }
 
 header,
@@ -204,6 +300,22 @@ ul .speech.active {
     text-align: center !important;
 }
 
+.contacts {
+    margin: 15px 5px;
+}
+
+.wrapper {
+    width: 90vw;
+    background: #fff;
+    border-radius: 15px;
+    padding: 30px 30px 25px;
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.1);
+}
+
+h4 {
+    margin: 0;
+}
+
 @media (max-width: 35em) {
 
     p,
@@ -260,6 +372,7 @@ ul .speech.active {
         aspect-ratio: 1.65;
         padding: 0 1.25rem 0 1.25rem;
     }
+
 
 }
 
@@ -370,8 +483,8 @@ ul .speech.active {
 
     .prim-header,
     footer {
-        padding: 5px 25px 5px;
-        margin: 5px 15px 5px;
+        padding: 5px 0px;
+        margin: 10px 0px;
 
     }
 }
