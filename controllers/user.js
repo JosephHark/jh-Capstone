@@ -3,6 +3,7 @@ const res = require('express/lib/response');
 const UserModel = require('../models/user-model');
 const createError = require('http-errors');
 const mongoose = require('mongoose');
+/*
 
 const getAll = async (req, res, next) => {
   // #swagger.tags = ['Users']
@@ -69,9 +70,10 @@ const getUserByName = async (req, res, next) => {
     res.json({ message: 'Invalid request' });
   }
 };
-
+*/
 const registerUser = async (req, res) => {
   // #swagger.ignore = true
+  console.log("IS this getting though?");
   const { email, firstname, lastname, password } = req.body;
 
   // console.log(req.body);
@@ -115,7 +117,7 @@ const registerUser = async (req, res) => {
           password
         });
 
-        bcrypt.genSalt(10, (err, salt) => {
+        /*bcrypt.genSalt(10, (err, salt) => {
           bcrypt.hash(newUser.password, salt, (err, hash) => {
             if (err) throw err;
             newUser.password = hash;
@@ -127,12 +129,12 @@ const registerUser = async (req, res) => {
               })
               .catch((err) => console.log(err));
           });
-        });
+        });*/
       }
     });
   }
 };
-
+/*
 const delete_user = async (req, res, next) => {
   // #swagger.tags = ['Users']
 
@@ -152,11 +154,11 @@ const delete_user = async (req, res, next) => {
     next(err);
   }
 };
-
+*/
 module.exports = {
-  getAll,
-  getSingle,
-  getUserByName,
-  registerUser,
-  delete_user
+  //getAll,
+  //getSingle,
+  //getUserByName,
+  registerUser
+ // delete_user
 };

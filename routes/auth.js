@@ -1,6 +1,12 @@
 const router = require('express').Router();
 const passport = require('passport');
+const express = require('express');
 
+const registerNewUser = require('../controllers/user');
+
+router.use(express.urlencoded({
+    extended: true
+}));
 
 //login
 router.get('/login', (req, res) => {
@@ -14,6 +20,16 @@ router.get('/emaillogin', (req, res) => {
         user: req.user
     });
 });
+
+router.post('/registerUser', (req, res) => {
+    console.log(req.body);
+    registerNewUser.registerUser(req, res);
+    //res.render('/login', {
+        //user: req.user
+   // });
+   res.redirect('/auth/login');
+});
+
 router.get('/register', (req, res) => {
     res.render('register', {
         user: req.user

@@ -1,5 +1,5 @@
 const express = require('express');
-const authRoutes = require('./routes/auth-routes');
+const authRoutes = require('./routes/auth');
 const profileRoutes = require('./routes/profile-routes');
 const recoveryRoutes = require('./routes/recovery-routes');
 const passportSetup = require('./config/passport-setup');
@@ -9,6 +9,8 @@ const passport = require('passport');
 const keys = require('./config/keys');
 const contacts = require('./models/contacts-model')
 const app = express();
+//const bcrypt = require('bcrypt')
+
 
 //view engine
 app.set('view engine', 'ejs');
