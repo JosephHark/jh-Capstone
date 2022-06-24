@@ -8,6 +8,11 @@ body {
     overflow-x: hidden;
 }
 
+html {
+    padding: 0 .75rem;
+
+}
+
 .links,
 footer {
     text-decoration: none;
@@ -120,6 +125,7 @@ input {
 .prim-header {
     align-items: center;
     justify-content: space-between;
+    width: auto;
 }
 
 .prim-header,
@@ -362,7 +368,6 @@ h4 {
     .halfImage {
         width: 90%;
         aspect-ratio: 1.65;
-        padding: 0 1.25rem 0 1.25rem;
     }
 
     .gamImg,
@@ -370,7 +375,6 @@ h4 {
     .techImg {
         width: 90%;
         aspect-ratio: 1.65;
-        padding: 0 1.25rem 0 1.25rem;
     }
 
 
@@ -380,7 +384,7 @@ h4 {
     .primary-nav {
         --gap: 3rem;
         padding-block: 2rem;
-        padding-inline: clamp(3rem, 10vw, 10rem);
+        padding-inline: 1rem;
         top: 2rem;
         right: 2rem;
     }
@@ -388,13 +392,15 @@ h4 {
     .hero {
         display: grid;
         column-gap: 30px;
-        grid-template-columns: 3fr 2fr;
+        grid-template-columns: 1fr;
     }
 
     .heroImage {
         max-width: 60vw;
         aspect-ratio: 1.5;
-        padding: 0 0.5rem 0 2rem;
+        float: right;
+        padding: .15rem;
+        margin: .2rem;
     }
 
     .toDos {
@@ -412,15 +418,10 @@ h4 {
     .halfImage {
         max-width: 50vw;
         aspect-ratio: 1.65;
-        padding: 0 0.5rem 0 2rem;
     }
 
     .full {
         grid-column: 1 / span 2;
-    }
-
-    .addiction-info {
-        padding: 2rem;
     }
 
     .effect {
@@ -428,16 +429,9 @@ h4 {
         grid-template-columns: 1fr 1fr 1fr;
     }
 
-    .health,
-    .family {
-        padding: 0 0.5rem 0 2rem;
-
-    }
-
     .effectImg {
         width: 80%;
         aspect-ratio: 1.65;
-        padding: 0 1.25rem 0 1.25rem;
     }
 
     .MAFFull {
@@ -449,9 +443,8 @@ h4 {
     .sexImg,
     .subImg,
     .techImg {
-        width: 80%;
+        width: 95%;
         aspect-ratio: 1.65;
-        padding: 0 1.25rem 0 1.25rem;
     }
 
     .familyfull,
@@ -460,6 +453,11 @@ h4 {
     .alcoholFull {
         display: grid;
         grid-template-columns: 1fr 1fr;
+    }
+
+    .alcoholFull .family {
+        grid-column: 1 / span 2;
+
     }
 
     .subfamily {
