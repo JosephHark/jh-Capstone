@@ -27,8 +27,7 @@ app.use(passport.session());
 mongodb.initDb((err) => {
     if (err) {
         console.log(err);
-    } else {
-    }
+    } else {}
 });
 
 //set up routes
@@ -51,6 +50,6 @@ app.get('/', (req, res) => {
     });
 });
 
-app.listen(8080, () => {
+app.listen(process.env.PORT || 8080, () => {
     console.log('Capstone project loads into port 8080')
 })
