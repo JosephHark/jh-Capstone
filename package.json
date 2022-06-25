@@ -19,6 +19,7 @@
   "homepage": "https://github.com/JosephHark/capstoneFinal#readme",
   "dependencies": {
     "aria-collapsible": "^4.0.0",
+    "contact-model": "^0.1.0",
     "cookie-session": "^2.0.0",
     "dotenv": "^16.0.1",
     "ejs": "^3.1.7",
