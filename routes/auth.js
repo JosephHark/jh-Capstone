@@ -22,12 +22,12 @@ router.get('/emaillogin', (req, res) => {
 });
 
 router.post('/registerUser', (req, res) => {
-    console.log(req.body);
     registerNewUser.registerUser(req, res);
-    //res.render('/login', {
-        //user: req.user
-   // });
-   res.redirect('/auth/login');
+    const newUser = new User(req.body);
+
+    newUser.save().then((result)=>{
+        res.redirect('/auth/login');
+    })
 });
 
 router.get('/register', (req, res) => {

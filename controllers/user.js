@@ -23,7 +23,7 @@ const getAll = async (req, res, next) => {
     next(err);
   }
 };
-
+*/
 const getSingle = async (req, res, next) => {
   // #swagger.tags = ['Users']
 
@@ -44,7 +44,7 @@ const getSingle = async (req, res, next) => {
     next(err);
   }
 };
-
+/*
 const getUserByName = async (req, res, next) => {
   // #swagger.tags = ['Users']
 
