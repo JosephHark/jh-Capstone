@@ -1,18 +1,22 @@
-const collection = 'contacts';
-const { response } = require('express');
+const {
+  response
+} = require('express');
 const res = require('express/lib/response');
-const ContactsModel = require('../models/contacts-model');
+const contactModel = require('../models/contact-model');
 const createError = require('http-errors');
 const mongoose = require('mongoose');
 
-
-// #swagger.tags = ['contacts']
 
 const getAll = async (req, res, next) => {
   // #swagger.tags = ['contacts']
 
   try {
-    const request = await ContactsModel.find();
+    const request = await contactModel.find();
+    request.forEach((contact) => {
+      if (contact.phone) {
+        contact.phone = '********';
+      }
+    });
     res.json(request);
   } catch (err) {
     // res.json({
@@ -26,9 +30,12 @@ const getSingle = async (req, res, next) => {
   // #swagger.tags = ['contacts']
 
   try {
-    const request = await ContactsModel.findById(req.params.id);
+    const request = await contactModel.findById(req.params.id);
     if (!request) {
       throw createError(404, "contact doesn't exist");
+    }
+    if (request.phone) {
+      request.phone = '********';
     }
     res.json(request);
   } catch (err) {
@@ -40,33 +47,64 @@ const getSingle = async (req, res, next) => {
   }
 };
 
-const create_contact = async (req, res, next) => {
-  try {
-    if (
-      !req.body.fullname ||
-      !req.body.email ||
-      !req.body.phone 
-    ) {
-      res.status(400).send({ message: 'contact fields cannot be empty.' });
-      return;
-    }
-    const contact = new ContactsModel(req.body);
-    contact
-      .save()
-      .then((data) => {
-        // console.log(data);
-        res.status(201).send(data);
-      })
-      .catch((err) => {
-        res.status(500).send({
-          message: err.message || 'An error occurred while creating the contact entry.'
+const registercontact = async (req, res) => {
+  // #swagger.ignore = true
+  console.log("IS this getting though?");
+  const {
+    email,
+    firstname,
+    lastname,
+    phone
+  } = req.body;
+
+  // console.log(req.body);
+  let errors = [];
+
+  if (!email || !firstname || !lastname || !phone) {
+    errors.push({
+      msg: 'Fields cannot be left blank.'
+    });
+  }
+  if (errors.length > 0) {
+    res.render('addcontact', {
+      layout: 'login',
+      errors,
+      email,
+      phone
+    });
+    // console.log(errors);
+  } else {
+    contactModel.findOne({
+      email: email
+    }).then((user) => {
+      if (user) {
+        errors.push({
+          msg: 'That email is already registered.'
         });
-      });
-  } catch (err) {
-    res.status(500).json(err);
+        res.render('addcontact', {
+          layout: 'login',
+          errors,
+          email,
+          password
+        });
+        // console.log(errors);
+      } else {
+        const newContact = new contactModel({
+          email,
+          firstname,
+          lastname,
+          password
+        });
+        newContact
+          .save()
+          .then((user) => {
+            res.redirect('addcontact');
+          })
+          .catch((err) => console.log(err));
+      }
+    });
   }
 };
-
 const update_contact = async (req, res, next) => {
   try {
     const contact = await ContactsModel.findById(req.params.id);
@@ -75,7 +113,9 @@ const update_contact = async (req, res, next) => {
       throw createError(404, "contact doesn't exist");
     }
 
-    if (req.body.fullname) contact.fullname = req.body.fullname;
+    if (req.body.firstname) contact.firstname = req.body.firstname;
+    if (req.body.lastname) contact.lastname = req.body.lastname;
+
     if (req.body.email) contact.email = req.body.email;
     if (req.body.phone) contact.phone = req.body.phone;
 
@@ -92,8 +132,10 @@ const update_contact = async (req, res, next) => {
 };
 
 const delete_contact = async (req, res, next) => {
+  // #swagger.tags = ['contacts']
+
   try {
-    const request = await ContactsModel.findByIdAndDelete({
+    const request = await contactModel.findByIdAndDelete({
       _id: req.params.id
     });
     if (!request) {
@@ -112,7 +154,7 @@ const delete_contact = async (req, res, next) => {
 module.exports = {
   getAll,
   getSingle,
-  create_contact,
-  delete_contact,
-  update_contact
+  update_contact,
+  registercontact,
+  delete_contact
 };
