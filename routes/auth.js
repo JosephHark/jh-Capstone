@@ -1,6 +1,7 @@
 const router = require('express').Router();
 const passport = require('passport');
 const express = require('express');
+const UserModel = require('../models/user-model');
 
 const registerNewUser = require('../controllers/user');
 
@@ -23,11 +24,6 @@ router.get('/emaillogin', (req, res) => {
 
 router.post('/registerUser', (req, res) => {
     registerNewUser.registerUser(req, res);
-    const newUser = new User(req.body);
-
-    newUser.save().then((result)=>{
-        res.redirect('/auth/login');
-    })
 });
 
 router.get('/register', (req, res) => {

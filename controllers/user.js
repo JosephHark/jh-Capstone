@@ -1,9 +1,11 @@
-const { response } = require('express');
+const {
+  response
+} = require('express');
 const res = require('express/lib/response');
 const UserModel = require('../models/user-model');
 const createError = require('http-errors');
 const mongoose = require('mongoose');
-/*
+
 
 const getAll = async (req, res, next) => {
   // #swagger.tags = ['Users']
@@ -23,7 +25,7 @@ const getAll = async (req, res, next) => {
     next(err);
   }
 };
-*/
+
 const getSingle = async (req, res, next) => {
   // #swagger.tags = ['Users']
 
@@ -44,20 +46,25 @@ const getSingle = async (req, res, next) => {
     next(err);
   }
 };
-/*
+
 const getUserByName = async (req, res, next) => {
   // #swagger.tags = ['Users']
 
   try {
-    const request = await UserModel.find({$or:[{
-      lastname: {
-        $regex: req.params.user,
-        $options: 'i'
-      }},
-      {firstname: {
-        $regex: req.params.user,
-        $options: 'i'
-      }}]
+    const request = await UserModel.find({
+      $or: [{
+          lastname: {
+            $regex: req.params.user,
+            $options: 'i'
+          }
+        },
+        {
+          firstname: {
+            $regex: req.params.user,
+            $options: 'i'
+          }
+        }
+      ]
     });
     if (request.length == 0) {
       throw createError(404, 'User not found');
@@ -67,26 +74,35 @@ const getUserByName = async (req, res, next) => {
     }
     res.json(request);
   } catch (err) {
-    res.json({ message: 'Invalid request' });
+    res.json({
+      message: 'Invalid request'
+    });
   }
 };
-*/
+
 const registerUser = async (req, res) => {
   // #swagger.ignore = true
   console.log("IS this getting though?");
-  const { email, firstname, lastname, password } = req.body;
+  const {
+    email,
+    firstname,
+    lastname,
+    password
+  } = req.body;
 
   // console.log(req.body);
   let errors = [];
 
   if (!email || !firstname || !lastname || !password) {
-    errors.push({ msg: 'Fields cannot be left blank.' });
-    req.flash('error', 'Fields cannot be left blank.');
+    errors.push({
+      msg: 'Fields cannot be left blank.'
+    });
   }
 
   if (password.length < 8) {
-    errors.push({ msg: 'Password must be at least 8 characters.' });
-    req.flash('error', 'Password must be at least 8 characters.');
+    errors.push({
+      msg: 'Password must be at least 8 characters.'
+    });
   }
 
   if (errors.length > 0) {
@@ -97,11 +113,14 @@ const registerUser = async (req, res) => {
       password
     });
     // console.log(errors);
-  } else {
-    UserModel.findOne({ email: email }).then((user) => {
+  } else{
+    UserModel.findOne({
+      email: email
+    }).then((user) => {
       if (user) {
-        errors.push({ msg: 'That email is already registered.' });
-        req.flash('error', 'That email is already registered.');
+        errors.push({
+          msg: 'That email is already registered.'
+        });
         res.render('register', {
           layout: 'login',
           errors,
@@ -116,25 +135,17 @@ const registerUser = async (req, res) => {
           lastname,
           password
         });
-
-        /*bcrypt.genSalt(10, (err, salt) => {
-          bcrypt.hash(newUser.password, salt, (err, hash) => {
-            if (err) throw err;
-            newUser.password = hash;
-            newUser
-              .save()
-              .then((user) => {
-                req.flash('success', 'You are registered and can now log in.');
-                res.redirect('/emaillogin');
-              })
-              .catch((err) => console.log(err));
-          });
-        });*/
+        newUser
+          .save()
+          .then((user) => {
+            res.redirect('/auth/login');
+          })
+          .catch((err) => console.log(err));
       }
     });
   }
 };
-/*
+
 const delete_user = async (req, res, next) => {
   // #swagger.tags = ['Users']
 
@@ -154,11 +165,11 @@ const delete_user = async (req, res, next) => {
     next(err);
   }
 };
-*/
+
 module.exports = {
-  //getAll,
-  //getSingle,
-  //getUserByName,
-  registerUser
- // delete_user
+  getAll,
+  getSingle,
+  getUserByName,
+  registerUser,
+  delete_user
 };
