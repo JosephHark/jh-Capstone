@@ -1,7 +1,8 @@
 const router = require('express').Router();
 const passport = require('passport');
 const express = require('express');
-const UserModel = require('../models/user-model');
+const UserGModel = require('../models/google');
+const UserFModel = require('../models/facebook');
 
 const registerNewUser = require('../controllers/user');
 

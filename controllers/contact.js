@@ -93,8 +93,7 @@ const registercontact = async (req, res) => {
           email,
           firstname,
           lastname,
-          phone,
-          googleId
+          phone
         });
         newContact.save()
           .then((user) => {

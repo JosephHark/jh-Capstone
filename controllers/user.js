@@ -2,7 +2,8 @@ const {
   response
 } = require('express');
 const res = require('express/lib/response');
-const UserModel = require('../models/user-model');
+const UserGModel = require('../models/google');
+const UserFModel = require('../models/facebook');
 const createError = require('http-errors');
 const mongoose = require('mongoose');
 
@@ -11,7 +12,7 @@ const getAll = async (req, res, next) => {
   // #swagger.tags = ['Users']
 
   try {
-    const request = await UserModel.find();
+    const request = await UserGModel.find();
     request.forEach((user) => {
       if (user.password) {
         user.password = '********';
@@ -30,7 +31,7 @@ const getSingle = async (req, res, next) => {
   // #swagger.tags = ['Users']
 
   try {
-    const request = await UserModel.findById(req.params.id);
+    const request = await UserGModel.findById(req.params.id);
     if (!request) {
       throw createError(404, "User doesn't exist");
     }
@@ -51,7 +52,7 @@ const getUserByName = async (req, res, next) => {
   // #swagger.tags = ['Users']
 
   try {
-    const request = await UserModel.find({
+    const request = await UserGModel.find({
       $or: [{
           lastname: {
             $regex: req.params.user,
@@ -114,7 +115,7 @@ const registerUser = async (req, res) => {
     });
     // console.log(errors);
   } else{
-    UserModel.findOne({
+    UserGModel.findOne({
       email: email
     }).then((user) => {
       if (user) {
@@ -129,7 +130,7 @@ const registerUser = async (req, res) => {
         });
         // console.log(errors);
       } else {
-        const newUser = new UserModel({
+        const newUser = new UserGModel({
           email,
           firstname,
           lastname,
@@ -150,7 +151,7 @@ const delete_user = async (req, res, next) => {
   // #swagger.tags = ['Users']
 
   try {
-    const request = await UserModel.findByIdAndDelete({
+    const request = await UserGModel.findByIdAndDelete({
       _id: req.params.id
     });
     if (!request) {
