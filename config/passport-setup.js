@@ -38,27 +38,28 @@ passport.use(
     })
 )
 
-passport.use(new FacebookStrategy({
-    //facebook strategy
-    callbackURL: '/auth/facebook/redirect',
-    clientID: keys.facebook.clientID,
-    clientSecret: keys.facebook.clientSecret,
-}, (accessToken, refreshToken, profile, done) => {
-    User.findOne({
-        facebookid: profile.id
-    }).then((currentUser) => {
-        if (currentUser) {
-            //already havea a user
-            done(null, currentUser);
-        } else {
-            //create a new user
-            new User({
-                username: profile.displayName,
-                facebookid: profile.id
-            }).save().then((newUser) => {
-                done(null, newUser);
-            })
-        }
+passport.use(
+    new facebookStrat({
+        //google strategy
+        callbackURL: '/auth/facebook/callback',
+        clientID: keys.facebook.clientID,
+        clientSecret: keys.facebook.clientSecret,
+    }, (accessToken, refreshToken, profile, done) => {
+        User.findOne({
+            googleid: profile.id
+        }).then((currentUser) => {
+            if (currentUser) {
+                //already havea a user
+                done(null, currentUser);
+            } else {
+                //create a new user
+                new User({
+                    username: profile.displayName,
+                    googleid: profile.id
+                }).save().then((newUser) => {
+                    done(null, newUser);
+                })
+            }
+        })
     })
-})
 )

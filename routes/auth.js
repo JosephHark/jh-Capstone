@@ -45,8 +45,16 @@ router.get('/google', passport.authenticate('google', {
 }));
 
 //callback route for google
-router.get('/google/redirect', passport.authenticate('google'), (req, res) => {
+router.get('/google/redirect', passport.authenticate('google'), { failureRedirect: '/login' }, (req, res) => {
     //res.send(req.user);
     res.redirect('/profile');
 });
+
+router.get('/facebook',passport.authenticate('facebook',{
+    scope: ['profile']
+}));
+
+  router.get('/facebook/callback', passport.authenticate('facebook', { failureRedirect: '/login' }, (req, res) =>{
+    res.redirect('/profile');
+  }));
 module.exports = router;
