@@ -2,7 +2,7 @@ const {
   response
 } = require('express');
 const res = require('express/lib/response');
-const contactModel = require('../models/contact-model');
+const contactModel = require('../models/contacts');
 const createError = require('http-errors');
 const mongoose = require('mongoose');
 
@@ -84,8 +84,8 @@ const registercontact = async (req, res) => {
         res.render('addcontact', {
           layout: 'login',
           errors,
-          email,
-          password
+          email
+
         });
         // console.log(errors);
       } else {
@@ -93,13 +93,16 @@ const registercontact = async (req, res) => {
           email,
           firstname,
           lastname,
-          password
+          phone,
+          googleId
         });
-        newContact
-          .save()
+        newContact.save()
           .then((user) => {
-            res.redirect('addcontact');
+            res.redirect('profile', {
+              user: req.user
+            });
           })
+
           .catch((err) => console.log(err));
       }
     });

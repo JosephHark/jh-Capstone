@@ -7,7 +7,7 @@ const mongodb = require('./connect');
 const cookie = require('cookie-session');
 const passport = require('passport');
 const keys = require('./config/keys');
-const contacts = require('./models/contacts-model')
+const contacts = require('./models/contacts')
 const app = express();
 //const bcrypt = require('bcrypt')
 

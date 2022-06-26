@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const express = require('express')
-const contact = require('../models/contacts-model')
+const contact = require('../models/contacts')
 const registercontact = require('../controllers/contact');
 const authCheck = (req, res, next) => {
     if (!req.user) {
@@ -18,6 +18,8 @@ router.use(express.urlencoded({
 router.post('/newContact', (req, res) => {
     registercontact.registercontact(req, res);
 });
+
+
 router.get('/addcontact', (req, res) => {
     res.render('addcontact', {
         user: req.user
