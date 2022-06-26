@@ -8,11 +8,11 @@ const createError = require('http-errors');
 const mongoose = require('mongoose');
 
 
-const getAll = async (req, res, next) => {
+const getFAll = async (req, res, next) => {
   // #swagger.tags = ['Users']
 
   try {
-    const request = await UserGModel.find();
+    const request = await UserFModel.find();
     request.forEach((user) => {
       if (user.password) {
         user.password = '********';
@@ -27,11 +27,11 @@ const getAll = async (req, res, next) => {
   }
 };
 
-const getSingle = async (req, res, next) => {
+const getFSingle = async (req, res, next) => {
   // #swagger.tags = ['Users']
 
   try {
-    const request = await UserGModel.findById(req.params.id);
+    const request = await UserFModel.findById(req.params.id);
     if (!request) {
       throw createError(404, "User doesn't exist");
     }
@@ -48,42 +48,8 @@ const getSingle = async (req, res, next) => {
   }
 };
 
-const getUserByName = async (req, res, next) => {
-  // #swagger.tags = ['Users']
-
-  try {
-    const request = await UserGModel.find({
-      $or: [{
-          lastname: {
-            $regex: req.params.user,
-            $options: 'i'
-          }
-        },
-        {
-          firstname: {
-            $regex: req.params.user,
-            $options: 'i'
-          }
-        }
-      ]
-    });
-    if (request.length == 0) {
-      throw createError(404, 'User not found');
-    }
-    if (request.password) {
-      request.password = '********';
-    }
-    res.json(request);
-  } catch (err) {
-    res.json({
-      message: 'Invalid request'
-    });
-  }
-};
-
-const registerUser = async (req, res) => {
+const registerFUser = async (req, res) => {
   // #swagger.ignore = true
-  console.log("IS this getting though?");
   const {
     email,
     firstname,
@@ -115,7 +81,7 @@ const registerUser = async (req, res) => {
     });
     // console.log(errors);
   } else{
-    UserGModel.findOne({
+    UserFModel.findOne({
       email: email
     }).then((user) => {
       if (user) {
@@ -130,7 +96,7 @@ const registerUser = async (req, res) => {
         });
         // console.log(errors);
       } else {
-        const newUser = new UserGModel({
+        const newUser = new UserFModel({
           email,
           firstname,
           lastname,
@@ -147,11 +113,11 @@ const registerUser = async (req, res) => {
   }
 };
 
-const delete_user = async (req, res, next) => {
+const deleteFUser = async (req, res, next) => {
   // #swagger.tags = ['Users']
 
   try {
-    const request = await UserGModel.findByIdAndDelete({
+    const request = await UserFModel.findByIdAndDelete({
       _id: req.params.id
     });
     if (!request) {
@@ -168,9 +134,8 @@ const delete_user = async (req, res, next) => {
 };
 
 module.exports = {
-  getAll,
-  getSingle,
-  getUserByName,
-  registerUser,
-  delete_user
+  getFAll,
+  getFSingle,
+  registerFUser,
+  deleteFUser
 };
