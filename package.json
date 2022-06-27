@@ -32,5 +32,8 @@
     "passport-google-oauth20": "^2.0.0",
     "swagger": "^0.0.1",
     "swagger-ui-express": "^4.3.0"
+  },
+  "resolutions": {
+    "graceful-fs": "^4.2.9"
   }
 }
