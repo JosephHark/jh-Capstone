@@ -45,9 +45,21 @@ passport.use(new FacebookStrategy({
     clientSecret: keys.facebook.clientSecret,
     callbackURL: "/auth/facebook/callback"
   },
-  function(accessToken, refreshToken, profile, cb) {
-    User.findOrCreate({ facebookId: profile.id }, function (err, user) {
-      return cb(err, user);
-    });
-  }
-));
+  (accessToken, refreshToken, profile, done) => {
+    User.findOne({
+        googleid: profile.id
+    }).then((currentUser) => {
+        if (currentUser) {
+            //already havea a user
+            done(null, currentUser);
+        } else {
+            //create a new user
+            new User({
+                username: profile.displayName,
+                facebookId: profile.id
+            }).save().then((newUser) => {
+                done(null, newUser);
+            })
+        }
+    })
+}));
