@@ -2,7 +2,7 @@ const router = require('express').Router();
 const passport = require('passport');
 const express = require('express');
 const UserGModel = require('../models/google');
-const UserFModel = require('../models/facebook');
+//const UserFModel = require('../models/facebook');
 
 const registerNewUser = require('../controllers/user');
 
@@ -45,7 +45,7 @@ router.get('/google', passport.authenticate('google', {
 }));
 
 //callback route for google
-router.get('/google/redirect', passport.authenticate('google'), { failureRedirect: '/login' }, (req, res) => {
+router.get('/google/redirect', passport.authenticate('google'),  (req, res) => {
     //res.send(req.user);
     res.redirect('/profile');
 });

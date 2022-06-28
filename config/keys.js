@@ -7,7 +7,7 @@ module.exports = {
         cookieKey: "thisisjosephspersonalproject"
     },
     facebook: {
-        clientID: '',
-        clientSecret: ''
+        clientID: '557869472495335',
+        clientSecret: '77ca92c137cc590643a97377f5bf820e'
     }
 }

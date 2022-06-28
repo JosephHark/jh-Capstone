@@ -1,7 +1,7 @@
 const {response} = require('express');
 const res = require('express/lib/response');
 const UserGModel = require('../models/google');
-const UserFModel = require('../models/facebook');
+//const UserFModel = require('../models/facebook');
 const createError = require('http-errors');
 const mongoose = require('mongoose');
 
